@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Digital Clock</title>
+    <style>
+      .clock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .display {
+        font-size: 10rem;
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="display"></div>
+    </div>
+
+    <script>
+      function setTime() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        document.querySelector('.display').textContent = timeString;
+      }
+
+      setInterval(setTime, 1000);
+    </script>
+  </body>
+</html>
